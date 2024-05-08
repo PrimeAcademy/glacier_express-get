@@ -13,11 +13,8 @@ app.use(express.static('server/public'))
 
 // -------- GET ROUTE ------------------
 
-let quoteList = [
-  { text: 'I\'m not going to school just for the academics - I wanted to share ideas, to be around people who are passionate about learning.', author: 'Emma Watson' },
-  { text: 'Remember there\'s no such thing as a small act of kindness. Every act creates a ripple with no logical end.', author: 'Scott Adams' },
-  { text: 'Intelligence plus character-that is the goal of true education.', author: 'Martin Luther King, Jr.' }
-];
+// * Require code from another file to store in a variable
+const quoteList = require('./quoteList.js')
 
 // * GET Route to return some quotes
   // A method type, which receives 2 arguments
