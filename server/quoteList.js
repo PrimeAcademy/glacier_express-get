@@ -4,4 +4,4 @@ let quoteList = [
     { text: 'Intelligence plus character-that is the goal of true education.', author: 'Martin Luther King, Jr.' }
   ];
 
-  module.exports = quoteList
+module.exports = quoteList

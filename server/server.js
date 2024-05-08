@@ -7,9 +7,14 @@ const port = 5000
 
 // * The server will be attached to "localhost", at specific port (5000)
 
-// ! Make server deliver our webpage
+// ! Configuring the server
   // Tell the server where the files for the page are
 app.use(express.static('server/public'))
+// ! REQUIRED...Configure server to recieve data from POST requests
+    // for axios
+  app.use(express.json())
+    // postman
+  app.use(express.urlencoded({extended: true}))
 
 // -------- GET ROUTE ------------------
 
@@ -46,6 +51,19 @@ app.get('/authors', (req, res) => {
 
   // * Respond with authors data
   res.send(authors)
+})
+
+// ! New POST request that will allow us to add a new quote to our quoteList
+app.post('/quotes', (req, res) => {
+
+  let incomingQuote = req.body
+  console.log("Going to add quote: ", incomingQuote)
+
+  quoteList.push(incomingQuote)
+  console.log("My QuoteList...", quoteList)
+  
+  // You always have to respond, even if its not data
+  res.sendStatus(201)
 })
 
 // -------- GET ROUTE END ---------------
