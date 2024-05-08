@@ -34,6 +34,23 @@ app.get('/quotes', (req, res) => {
   // res.sendStatus(500)
 })
 
+// ! Make a route called Authors, which only responds with the authors from the quoteList data structure
+    // responds Array of string (names)
+app.get('/authors', (req, res) => {
+  let authors = []
+
+  //* Loop over quote and extract names, push to 'authors' array
+  for (let quote of quoteList) {
+    console.log("Current quote", quote)
+    authors.push(quote.author)
+  }
+
+  console.log("Author list...", authors)
+
+  // * Respond with authors data
+  res.send(authors)
+})
+
 // -------- GET ROUTE END ---------------
 
 // ! Actually start server when file is ran
